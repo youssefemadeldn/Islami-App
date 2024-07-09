@@ -2,8 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/constants.dart';
 
-class SebhaTab extends StatelessWidget {
-  const SebhaTab({super.key});
+class SebhaTab extends StatefulWidget {
+  SebhaTab({super.key});
+
+  @override
+  State<SebhaTab> createState() => _SebhaTabState();
+}
+
+class _SebhaTabState extends State<SebhaTab> {
+  double rotationAngle = 0.0;
+  int tasbhaNumber = 0;
+  List<String> tasabeh = [
+    'سبحان الله',
+    'الحمدالله',
+    'لا اله الا الله',
+    'الله اكبر'
+  ];
+
+  int indexTsabeh = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +39,28 @@ class SebhaTab extends StatelessWidget {
           top: 90,
           left: 0,
           right: 0,
-          child: Image.asset(
-            // sebha body
-            'assets/images/body_of_seb7a.png',
-            width: 234,
-            height: 180,
+          child: GestureDetector(
+            onTap: () {
+              rotationAngle = rotationAngle + 0.25;
+              tasbhaNumber += 1;
+              if (tasbhaNumber == 33) {
+                tasbhaNumber = 1;
+                indexTsabeh++;
+                if (indexTsabeh == 4) {
+                  indexTsabeh = 0;
+                }
+              }
+              setState(() {});
+            },
+            child: Transform.rotate(
+              angle: rotationAngle,
+              child: Image.asset(
+                // sebha body
+                'assets/images/body_of_seb7a.png',
+                width: 234,
+                height: 180,
+              ),
+            ),
           ),
         ),
         Positioned(
@@ -54,7 +87,7 @@ class SebhaTab extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                '30',
+                '$tasbhaNumber',
                 style: GoogleFonts.inter(
                   fontSize: 25,
                   fontWeight: FontWeight.w400,
@@ -76,7 +109,7 @@ class SebhaTab extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                'سبحان الله',
+                '${tasabeh[indexTsabeh]}',
                 style: GoogleFonts.inter(
                   fontSize: 25,
                   fontWeight: FontWeight.w400,
