@@ -85,7 +85,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
   List<Widget> taps = [
     const RadioTab(),
     SebhaTab(),
-    const HadithTab(),
+    HadithTab(),
     const QuranTab(),
     const SettingTab(),
   ];
