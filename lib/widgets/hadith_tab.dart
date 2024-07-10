@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/constants.dart';
+import 'package:islamic_app/views/hadith_content_view.dart';
 
 class HadithTab extends StatelessWidget {
   List<Widget> generateTextWidgets() {
@@ -43,11 +44,17 @@ class HadithTab extends StatelessWidget {
           child: ListView(
             children: List.generate(50, (index) {
               return Center(
-                child: Text(
-                  'الحديث رقم ${index + 1}',
-                  style: GoogleFonts.inter(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.popAndPushNamed(
+                        context, HadithContentView.routName);
+                  },
+                  child: Text(
+                    'الحديث رقم ${index + 1}',
+                    style: GoogleFonts.inter(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               );
