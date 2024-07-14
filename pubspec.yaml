@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/images/
     - assets/fiels/quran_content/
+    - assets/fiels/hadith_content/
   
   #   - images/a_dot_ham.jpeg
 
