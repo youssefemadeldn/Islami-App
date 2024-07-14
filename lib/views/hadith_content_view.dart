@@ -44,44 +44,51 @@ class HadithContentView extends StatelessWidget {
             ),
             centerTitle: true,
           ),
-          body: Column(
-            children: [
-              const SizedBox(
-                height: 80,
-              ),
-              Text(
-                hadithModel.title,
-                style: GoogleFonts.inter(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              const Divider(
-                color: kPrimaryColor,
-                thickness: 1,
-                endIndent: 100,
-                indent: 100,
-              ),
-              Expanded(
-                child: ListView.builder(
-                    itemCount: hadithModel.content.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 30),
-                        child: Center(
-                          child: Text(
-                            hadithModel.content[index],
-                            style: GoogleFonts.inter(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w400,
+          body: Padding(
+            padding:
+                const EdgeInsets.only(top: 80, bottom: 8, right: 10, left: 10),
+            child: Card(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    hadithModel.title,
+                    style: GoogleFonts.inter(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const Divider(
+                    color: kPrimaryColor,
+                    thickness: 1,
+                    endIndent: 100,
+                    indent: 100,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: hadithModel.content.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                left: 30, right: 30, top: 30),
+                            child: Center(
+                              child: Text(
+                                textDirection: TextDirection.rtl,
+                                hadithModel.content[index],
+                                style: GoogleFonts.inter(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                      );
-                    }),
+                          );
+                        }),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ],

@@ -55,51 +55,58 @@ class _QuranContentViewState extends State<QuranContentView> {
             ),
             centerTitle: true,
           ),
-          body: Column(
-            children: [
-              const SizedBox(
-                height: 80,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+          body: Padding(
+            padding:
+                const EdgeInsets.only(left: 10, right: 10, top: 80, bottom: 10),
+            child: Card(
+              child: Column(
                 children: [
-                  Text(
-                    'سورة ${suraModel.suraName}',
-                    style: GoogleFonts.inter(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
-                    ),
+                  const SizedBox(
+                    height: 20,
                   ),
-                  IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.play_circle)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'سورة ${suraModel.suraName}',
+                        style: GoogleFonts.inter(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.play_circle)),
+                    ],
+                  ),
+                  const Divider(
+                    color: kPrimaryColor,
+                    thickness: 1,
+                    endIndent: 100,
+                    indent: 100,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: verses.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                left: 30, right: 30, top: 15, bottom: 15),
+                            child: Center(
+                              child: Text(
+                                verses[index],
+                                style: GoogleFonts.inter(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                  ),
                 ],
               ),
-              const Divider(
-                color: kPrimaryColor,
-                thickness: 1,
-                endIndent: 100,
-                indent: 100,
-              ),
-              Expanded(
-                child: ListView.builder(
-                    itemCount: verses.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                            left: 30, right: 30, top: 15, bottom: 15),
-                        child: Center(
-                          child: Text(
-                            verses[index],
-                            style: GoogleFonts.inter(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
-              ),
-            ],
+            ),
           ),
         ),
       ],
