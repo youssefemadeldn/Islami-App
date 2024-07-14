@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/constants.dart';
+import 'package:islamic_app/models/sura_model.dart';
 import 'package:islamic_app/views/bottom_navigation_bar_view.dart';
 
-class QuranContentView extends StatelessWidget {
+class QuranContentView extends StatefulWidget {
   static const String routName = 'QuranContentView';
   const QuranContentView({super.key});
 
   @override
+  State<QuranContentView> createState() => _QuranContentViewState();
+}
+
+class _QuranContentViewState extends State<QuranContentView> {
+  List<String> verses = [];
+  @override
   Widget build(BuildContext context) {
+    SuraModel suraModel =
+        ModalRoute.of(context)?.settings.arguments as SuraModel;
+
+    if (verses.isEmpty) {
+      loadSuraFile(modelIndex: suraModel.suraIndex);
+    }
     return Stack(
       children: [
         Positioned(
@@ -41,69 +55,67 @@ class QuranContentView extends StatelessWidget {
             ),
             centerTitle: true,
           ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 80,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'سورة البقرة',
-                      style: GoogleFonts.inter(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.play_circle)),
-                  ],
-                ),
-                const Divider(
-                  color: kPrimaryColor,
-                  thickness: 1,
-                  endIndent: 100,
-                  indent: 100,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-                  child: Center(
-                    child: Text(
-                      """الم 
-ذَلِكَ الْكِتَابُ لَا رَيْبَ فِيهِ هُدًى لِلْمُتَّقِينَ 
-الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنْفِقُونَ 
-وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنْزِلَ إِلَيْكَ وَمَا أُنْزِلَ مِنْ قَبْلِكَ وَبِالْآَخِرَةِ هُمْ يُوقِنُونَ 
-أُولَئِكَ عَلَى هُدًى مِنْ رَبِّهِمْ وَأُولَئِكَ هُمُ الْمُفْلِحُونَ 
-إِنَّ الَّذِينَ كَفَرُوا سَوَاءٌ عَلَيْهِمْ أَأَنْذَرْتَهُمْ أَمْ لَمْ تُنْذِرْهُمْ لَا يُؤْمِنُونَ 
-خَتَمَ اللَّهُ عَلَى قُلُوبِهِمْ وَعَلَى سَمْعِهِمْ وَعَلَى أَبْصَارِهِمْ غِشَاوَةٌ وَلَهُمْ عَذَابٌ عَظِيمٌ 
-وَمِنَ النَّاسِ مَنْ يَقُولُ آَمَنَّا بِاللَّهِ وَبِالْيَوْمِ الْآَخِرِ وَمَا هُمْ بِمُؤْمِنِينَ  
-يُخَادِعُونَ اللَّهَ وَالَّذِينَ آَمَنُوا وَمَا يَخْدَعُونَ إِلَّا أَنْفُسَهُمْ وَمَا يَشْعُرُونَ 
-فِي قُلُوبِهِمْ مَرَضٌ فَزَادَهُمُ اللَّهُ مَرَضًا وَلَهُمْ عَذَابٌ أَلِيمٌ بِمَا كَانُوا يَكْذِبُونَ 
-وَإِذَا قِيلَ لَهُمْ لَا تُفْسِدُوا فِي الْأَرْضِ قَالُوا إِنَّمَا نَحْنُ مُصْلِحُونَ 
-أَلَا إِنَّهُمْ هُمُ الْمُفْسِدُونَ وَلَكِنْ لَا يَشْعُرُونَ 
-وَإِذَا قِيلَ لَهُمْ آَمِنُوا كَمَا آَمَنَ النَّاسُ قَالُوا أَنُؤْمِنُ كَمَا آَمَنَ السُّفَهَاءُ أَلَا إِنَّهُمْ هُمُ السُّفَهَاءُ وَلَكِنْ لَا يَعْلَمُونَ 
-وَإِذَا لَقُوا الَّذِينَ آَمَنُوا قَالُوا آَمَنَّا وَإِذَا خَلَوْا إِلَى شَيَاطِينِهِمْ قَالُوا إِنَّا مَعَكُمْ إِنَّمَا نَحْنُ مُسْتَهْزِئُونَ 
-اللَّهُ يَسْتَهْزِئُ بِهِمْ وَيَمُدُّهُمْ فِي طُغْيَانِهِمْ يَعْمَهُونَ 
-أُولَئِكَ الَّذِينَ اشْتَرَوُا الضَّلَالَةَ بِالْهُدَى فَمَا رَبِحَتْ تِجَارَتُهُمْ وَمَا كَانُوا مُهْتَدِينَ 
-مَثَلُهُمْ كَمَثَلِ الَّذِي اسْتَوْقَدَ نَارًا فَلَمَّا أَضَاءَتْ مَا حَوْلَهُ ذَهَبَ اللَّهُ بِنُورِهِمْ وَتَرَكَهُمْ فِي ظُلُمَاتٍ لَا يُبْصِرُونَ 
-صُمٌّ بُكْمٌ عُمْيٌ فَهُمْ لَا يَرْجِعُونَ 
-أَوْ كَصَيِّبٍ مِنَ السَّمَاءِ فِيهِ ظُلُمَاتٌ وَرَعْدٌ وَبَرْقٌ يَجْعَلُونَ أَصَابِعَهُمْ فِي آَذَانِهِمْ مِنَ الصَّوَاعِقِ حَذَرَ الْمَوْتِ وَاللَّهُ مُحِيطٌ بِالْكَافِرِينَ 
-يَكَادُ الْبَرْقُ يَخْطَفُ أَبْصَارَهُمْ كُلَّمَا أَضَاءَ لَهُمْ مَشَوْا فِيهِ وَإِذَا أَظْلَمَ عَلَيْهِمْ قَامُوا وَلَوْ شَاءَ اللَّهُ لَذَهَبَ بِسَمْعِهِمْ وَأَبْصَارِهِمْ إِنَّ اللَّهَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ 
-""",
-                      style: GoogleFonts.inter(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
-                      ),
+          body: Column(
+            children: [
+              const SizedBox(
+                height: 80,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'سورة ${suraModel.suraName}',
+                    style: GoogleFonts.inter(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
-                ),
-              ],
-            ),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.play_circle)),
+                ],
+              ),
+              const Divider(
+                color: kPrimaryColor,
+                thickness: 1,
+                endIndent: 100,
+                indent: 100,
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: verses.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(
+                            left: 30, right: 30, top: 15, bottom: 15),
+                        child: Center(
+                          child: Text(
+                            verses[index],
+                            style: GoogleFonts.inter(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ],
           ),
         ),
       ],
     );
+  }
+
+  loadSuraFile({required int modelIndex}) async {
+    // load sura file
+    String allSura = await rootBundle
+        .loadString('assets/fiels/quran_content/${modelIndex + 1}.txt');
+    // split sura to lines
+    List<String> suraLines = allSura.split('\n');
+// assign suraLines to another list that is global in whole class
+// because suraLines is seen only in its function
+    verses = suraLines;
+    // rebuild Ui
+    setState(() {});
   }
 }

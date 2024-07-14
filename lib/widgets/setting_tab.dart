@@ -5,83 +5,31 @@ class SettingTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        SettingsSection(
-          title: 'Common',
-          tiles: [
-            SettingsTile(
-              icon: Icons.language,
-              title: 'Language',
-              subtitle: 'English',
-              onTap: () {
-                // Handle tap
-              },
-            ),
-            SettingsTile(
-              icon: Icons.cloud,
-              title: 'Environment',
-              subtitle: 'Production',
-              onTap: () {
-                // Handle tap
-              },
-            ),
-            SettingsTile(
-              icon: Icons.phone_android,
-              title: 'Platform',
-              subtitle: 'Default',
-              onTap: () {
-                // Handle tap
-              },
-            ),
-            SwitchSettingsTile(
-              icon: Icons.format_paint,
-              title: 'Enable custom theme',
-              value: false,
-              onChanged: (bool l) {},
-            ),
-          ],
-        ),
-        SettingsSection(
-          title: 'Account',
-          tiles: [
-            SettingsTile(
-              icon: Icons.phone,
-              title: 'Phone number',
-              onTap: () {
-                // Handle tap
-              },
-            ),
-            SettingsTile(
-              icon: Icons.email,
-              title: 'Email',
-              onTap: () {
-                // Handle tap
-              },
-            ),
-            SettingsTile(
-              icon: Icons.logout,
-              title: 'Sign out',
-              onTap: () {
-                // Handle tap
-              },
-            ),
-          ],
-        ),
-        SettingsSection(
-          title: 'Security',
-          tiles: [
-            SwitchSettingsTile(
-              icon: Icons.phonelink_lock,
-              title: 'Lock app in background',
-              value: true,
-              onChanged: (bool value) {
-                // Handle switch change
-              },
-            ),
-          ],
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 59),
+      child: ListView(
+        children: [
+          SettingsSection(
+            title: 'Common',
+            tiles: [
+              SettingsTile(
+                icon: Icons.language,
+                title: 'Language',
+                subtitle: 'English',
+                onTap: () {
+                  // Handle tap
+                },
+              ),
+              SwitchSettingsTile(
+                icon: Icons.format_paint,
+                title: 'Enable custom theme',
+                value: false,
+                onChanged: (bool l) {},
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -124,7 +72,11 @@ class SettingsTile extends StatelessWidget {
   final VoidCallback? onTap;
 
   const SettingsTile(
-      {required this.icon, required this.title, this.subtitle, this.onTap});
+      {super.key,
+      required this.icon,
+      required this.title,
+      this.subtitle,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {

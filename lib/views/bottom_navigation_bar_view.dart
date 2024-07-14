@@ -86,7 +86,7 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
     const RadioTab(),
     SebhaTab(),
     HadithTab(),
-    const QuranTab(),
+    QuranTab(),
     const SettingTab(),
   ];
 }
