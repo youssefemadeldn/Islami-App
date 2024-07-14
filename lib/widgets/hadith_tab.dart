@@ -45,7 +45,8 @@ class _HadithTabState extends State<HadithTab> {
                 child: InkWell(
                   onTap: () {
                     Navigator.popAndPushNamed(
-                        context, HadithContentView.routName);
+                        context, HadithContentView.routName,
+                        arguments: allAhadith[index]);
                   },
                   child: Text(
                     allAhadith[index].title,
