@@ -147,7 +147,7 @@ class QuranTab extends StatelessWidget {
           left: 0,
           right: 0,
           child: Divider(
-            color: kPrimaryColor,
+            color: LightAppColors.kPrimaryColor,
             thickness: 3,
           ),
         ),
@@ -173,7 +173,7 @@ class QuranTab extends StatelessWidget {
           left: 0,
           right: 0,
           child: Divider(
-            color: kPrimaryColor,
+            color: LightAppColors.kPrimaryColor,
             thickness: 3,
           ),
         ),

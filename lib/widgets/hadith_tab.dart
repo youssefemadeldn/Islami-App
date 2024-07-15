@@ -41,7 +41,7 @@ class _HadithTabState extends State<HadithTab> {
           left: 0,
           right: 0,
           child: Divider(
-            color: kPrimaryColor,
+            color: LightAppColors.kPrimaryColor,
             thickness: 3,
           ),
         ),
@@ -62,7 +62,7 @@ class _HadithTabState extends State<HadithTab> {
           left: 0,
           right: 0,
           child: Divider(
-            color: kPrimaryColor,
+            color: LightAppColors.kPrimaryColor,
             thickness: 3,
           ),
         ),

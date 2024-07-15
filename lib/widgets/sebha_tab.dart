@@ -91,7 +91,7 @@ class _SebhaTabState extends State<SebhaTab> {
             width: 69,
             height: 81,
             decoration: BoxDecoration(
-              color: kPrimaryColor.withOpacity(0.57),
+              color: LightAppColors.kPrimaryColor.withOpacity(0.57),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
@@ -113,7 +113,7 @@ class _SebhaTabState extends State<SebhaTab> {
             width: 137,
             height: 51,
             decoration: BoxDecoration(
-              color: kPrimaryColor,
+              color: LightAppColors.kPrimaryColor,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(

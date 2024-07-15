@@ -61,7 +61,7 @@ class HadithContentView extends StatelessWidget {
                     ),
                   ),
                   const Divider(
-                    color: kPrimaryColor,
+                    color: LightAppColors.kPrimaryColor,
                     thickness: 1,
                     endIndent: 100,
                     indent: 100,

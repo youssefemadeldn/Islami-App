@@ -48,7 +48,7 @@ class RadioTab extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  color: kPrimaryColor,
+                  color: LightAppColors.kPrimaryColor,
                   Icons.arrow_back_ios,
                   size: 40,
                 ),
@@ -56,7 +56,7 @@ class RadioTab extends StatelessWidget {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  color: kPrimaryColor,
+                  color: LightAppColors.kPrimaryColor,
                   Icons.play_arrow,
                   size: 50,
                 ),
@@ -65,7 +65,7 @@ class RadioTab extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(
                     size: 40,
-                    color: kPrimaryColor,
+                    color: LightAppColors.kPrimaryColor,
                     Icons.arrow_forward_ios,
                   )),
             ],

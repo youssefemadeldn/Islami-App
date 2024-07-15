@@ -46,24 +46,24 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
               type: BottomNavigationBarType.shifting,
               items: const [
                 BottomNavigationBarItem(
-                    backgroundColor: kPrimaryColor,
+                    backgroundColor: LightAppColors.kPrimaryColor,
                     icon: ImageIcon(AssetImage('assets/images/radio.png')),
                     label: ''),
                 BottomNavigationBarItem(
-                    backgroundColor: kPrimaryColor,
+                    backgroundColor: LightAppColors.kPrimaryColor,
                     icon: ImageIcon(AssetImage('assets/images/sebha_blue.png')),
                     label: ''),
                 BottomNavigationBarItem(
-                    backgroundColor: kPrimaryColor,
+                    backgroundColor: LightAppColors.kPrimaryColor,
                     icon: ImageIcon(AssetImage('assets/images/hadith.png')),
                     label: ''),
                 BottomNavigationBarItem(
-                    backgroundColor: kPrimaryColor,
+                    backgroundColor: LightAppColors.kPrimaryColor,
                     icon:
                         ImageIcon(AssetImage('assets/images/moshaf_blue.png')),
                     label: ''),
                 BottomNavigationBarItem(
-                    backgroundColor: kPrimaryColor,
+                    backgroundColor: LightAppColors.kPrimaryColor,
                     icon: Icon(Icons.settings),
                     label: ''),
               ]),
