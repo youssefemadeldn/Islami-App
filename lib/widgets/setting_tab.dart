@@ -5,31 +5,50 @@ class SettingTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 59),
-      child: ListView(
-        children: [
-          SettingsSection(
-            title: 'Common',
-            tiles: [
-              SettingsTile(
-                icon: Icons.language,
-                title: 'Language',
-                subtitle: 'English',
-                onTap: () {
-                  // Handle tap
-                },
-              ),
-              SwitchSettingsTile(
-                icon: Icons.format_paint,
-                title: 'Enable custom theme',
-                value: false,
-                onChanged: (bool l) {},
-              ),
-            ],
+    return Stack(
+      // fit: StackFit.expand,
+      children: [
+        Positioned(
+          left: 0,
+          right: 0,
+          top: -70,
+          child: Image.asset(
+            'assets/images/bg_removed.png',
+            // height: 900,
           ),
-        ],
-      ),
+        ),
+        Positioned(
+          left: 0,
+          right: 0,
+          top: 100,
+          child: SizedBox(
+            height: 500,
+            child: ListView(
+              children: [
+                SettingsSection(
+                  title: 'Common',
+                  tiles: [
+                    SettingsTile(
+                      icon: Icons.language,
+                      title: 'Language',
+                      subtitle: 'English',
+                      onTap: () {
+                        // Handle tap
+                      },
+                    ),
+                    SwitchSettingsTile(
+                      icon: Icons.format_paint,
+                      title: 'Enable custom theme',
+                      value: false,
+                      onChanged: (bool l) {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

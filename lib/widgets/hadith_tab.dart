@@ -19,45 +19,80 @@ class _HadithTabState extends State<HadithTab> {
     if (allAhadith.isEmpty) {
       loadHadithFile();
     }
-    return Column(
+    return Stack(
       children: [
-        Image.asset('assets/images/hadith_logo.png'),
-        const Divider(
-          color: kPrimaryColor,
-          thickness: 3,
-        ),
-        Text(
-          'الأحاديث',
-          style: GoogleFonts.elMessiri(
-            fontSize: 25,
-            fontWeight: FontWeight.w600,
+        Positioned(
+          left: 0,
+          right: 0,
+          top: -70,
+          child: Image.asset(
+            'assets/images/bg_removed.png',
+            // height: 900,
           ),
         ),
-        const Divider(
-          color: kPrimaryColor,
-          thickness: 3,
+        Positioned(
+          top: 40,
+          left: 0,
+          right: 0,
+          child: Image.asset('assets/images/hadith_logo.png'),
         ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: allAhadith.length,
-            itemBuilder: (context, index) {
-              return Center(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.popAndPushNamed(
-                        context, HadithContentView.routName,
-                        arguments: allAhadith[index]);
-                  },
-                  child: Text(
-                    allAhadith[index].title,
-                    style: GoogleFonts.inter(
-                      fontSize: 25,
-                      fontWeight: FontWeight.w400,
+        const Positioned(
+          top: 280,
+          left: 0,
+          right: 0,
+          child: Divider(
+            color: kPrimaryColor,
+            thickness: 3,
+          ),
+        ),
+        Positioned(
+          top: 294,
+          left: 160,
+          right: 0,
+          child: Text(
+            'الأحاديث',
+            style: GoogleFonts.elMessiri(
+              fontSize: 25,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        const Positioned(
+          top: 325,
+          left: 0,
+          right: 0,
+          child: Divider(
+            color: kPrimaryColor,
+            thickness: 3,
+          ),
+        ),
+        Positioned(
+          top: 335,
+          left: 0,
+          right: 0,
+          child: SizedBox(
+            height: 500,
+            child: ListView.builder(
+              itemCount: allAhadith.length,
+              itemBuilder: (context, index) {
+                return Center(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.popAndPushNamed(
+                          context, HadithContentView.routName,
+                          arguments: allAhadith[index]);
+                    },
+                    child: Text(
+                      allAhadith[index].title,
+                      style: GoogleFonts.inter(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         )
       ],

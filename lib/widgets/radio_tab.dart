@@ -7,59 +7,70 @@ class RadioTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Spacer(
-          flex: 2,
-        ),
-        Image.asset(
-          'assets/images/radio_logo.png',
-          // height: 400,
-        ),
-        Spacer(
-          flex: 1,
-        ),
-        Text(
-          'إذاعة القرآن الكريم',
-          style: GoogleFonts.elMessiri(
-            fontWeight: FontWeight.w600,
-            fontSize: 25,
+        Positioned(
+          left: 0,
+          right: 0,
+          top: -70,
+          child: Image.asset(
+            'assets/images/bg_removed.png',
+            // height: 900,
           ),
         ),
-        const Spacer(
-          flex: 1,
+        Positioned(
+          top: 150,
+          child: Image.asset(
+            'assets/images/radio_logo.png',
+            // height: 400,
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                color: kPrimaryColor,
-                Icons.arrow_back_ios,
-                size: 40,
-              ),
+        Positioned(
+          top: 420,
+          left: 0,
+          right: 0,
+          child: Text(
+            textAlign: TextAlign.center,
+            'إذاعة القرآن الكريم',
+            style: GoogleFonts.elMessiri(
+              fontWeight: FontWeight.w600,
+              fontSize: 25,
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                color: kPrimaryColor,
-                Icons.play_arrow,
-                size: 50,
-              ),
-            ),
-            IconButton(
+          ),
+        ),
+        Positioned(
+          top: 500,
+          left: 0,
+          right: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
                 onPressed: () {},
                 icon: const Icon(
-                  size: 40,
                   color: kPrimaryColor,
-                  Icons.arrow_forward_ios,
-                )),
-          ],
+                  Icons.arrow_back_ios,
+                  size: 40,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  color: kPrimaryColor,
+                  Icons.play_arrow,
+                  size: 50,
+                ),
+              ),
+              IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    size: 40,
+                    color: kPrimaryColor,
+                    Icons.arrow_forward_ios,
+                  )),
+            ],
+          ),
         ),
-        Spacer(
-          flex: 2,
-        )
       ],
     );
   }

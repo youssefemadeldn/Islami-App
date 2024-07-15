@@ -26,8 +26,17 @@ class _SebhaTabState extends State<SebhaTab> {
     return Stack(
       children: [
         Positioned(
+          left: 0,
+          right: 0,
+          top: -70,
+          child: Image.asset(
+            'assets/images/bg_removed.png',
+            // height: 900,
+          ),
+        ),
+        Positioned(
           left: 184,
-          top: 31,
+          top: 75,
           child: Image.asset(
             // head of sebha
             'assets/images/head_of_seb7a.png',
@@ -36,7 +45,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
         Positioned(
-          top: 90,
+          top: 135,
           left: 0,
           right: 0,
           child: GestureDetector(
@@ -64,7 +73,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
         Positioned(
-          top: 300,
+          top: 330,
           // right: 0,
           left: 125,
           child: Text(
@@ -76,7 +85,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
         Positioned(
-          top: 350,
+          top: 380,
           left: 169,
           child: Container(
             width: 69,
@@ -98,7 +107,7 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
         Positioned(
-          top: 450,
+          top: 490,
           left: 137,
           child: Container(
             width: 137,

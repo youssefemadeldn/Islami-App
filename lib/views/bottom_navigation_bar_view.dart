@@ -27,21 +27,11 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
         Positioned(
           left: 0,
           right: 0,
-          child: Image.asset('assets/images/bg.png'),
+          child: Image.asset('assets/images/bg_removed.png'),
         ),
         Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            title: Text(
-              'اسلامي',
-              style: GoogleFonts.elMessiri(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            centerTitle: true,
-          ),
+          // backgroundColor: Colors.transparent,
+
           body: taps[selectedIndex],
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: selectedIndex,

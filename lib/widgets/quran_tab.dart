@@ -126,53 +126,87 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Image.asset('assets/images/quran_logo.png'),
-        const Divider(
-          color: kPrimaryColor,
-          thickness: 3,
+        Positioned(
+          left: 0,
+          right: 0,
+          top: -70,
+          child: Image.asset(
+            'assets/images/bg_removed.png',
+            // height: 900,
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              'اسم السورة',
-              style: GoogleFonts.elMessiri(
-                fontSize: 25,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ],
+        Positioned(
+            top: -55,
+            left: 0,
+            right: 0,
+            child: Image.asset('assets/images/quran_logo.png')),
+        const Positioned(
+          top: 280,
+          left: 0,
+          right: 0,
+          child: Divider(
+            color: kPrimaryColor,
+            thickness: 3,
+          ),
         ),
-        const Divider(
-          color: kPrimaryColor,
-          thickness: 3,
-        ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: suraNamesList.length,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, QuranContentView.routName,
-                      arguments: SuraModel(
-                          suraName: suraNamesList[index], suraIndex: index));
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      suraNamesList[index],
-                      style: GoogleFonts.inter(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ],
+        Positioned(
+          top: 295,
+          left: 0,
+          right: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'اسم السورة',
+                style: GoogleFonts.elMessiri(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
                 ),
-              );
-            },
+              ),
+            ],
+          ),
+        ),
+        const Positioned(
+          top: 328,
+          left: 0,
+          right: 0,
+          child: Divider(
+            color: kPrimaryColor,
+            thickness: 3,
+          ),
+        ),
+        Positioned(
+          top: 335,
+          left: 0,
+          right: 0,
+          child: SizedBox(
+            height: 300,
+            child: ListView.builder(
+              itemCount: suraNamesList.length,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, QuranContentView.routName,
+                        arguments: SuraModel(
+                            suraName: suraNamesList[index], suraIndex: index));
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(
+                        suraNamesList[index],
+                        style: GoogleFonts.inter(
+                          fontSize: 25,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
         )
       ],
