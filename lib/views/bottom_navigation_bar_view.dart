@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:islamic_app/constants.dart';
 import 'package:islamic_app/widgets/hadith_tab.dart';
 import 'package:islamic_app/widgets/quran_tab.dart';
 import 'package:islamic_app/widgets/radio_tab.dart';
@@ -39,32 +37,30 @@ class _BottomNavigationBarViewState extends State<BottomNavigationBarView> {
                 selectedIndex = value;
                 setState(() {});
               },
-              selectedItemColor: Colors.black,
-              unselectedItemColor: Colors.white,
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              type: BottomNavigationBarType.shifting,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    backgroundColor: LightAppColors.kPrimaryColor,
-                    icon: ImageIcon(AssetImage('assets/images/radio.png')),
-                    label: ''),
-                BottomNavigationBarItem(
-                    backgroundColor: LightAppColors.kPrimaryColor,
-                    icon: ImageIcon(AssetImage('assets/images/sebha_blue.png')),
-                    label: ''),
-                BottomNavigationBarItem(
-                    backgroundColor: LightAppColors.kPrimaryColor,
-                    icon: ImageIcon(AssetImage('assets/images/hadith.png')),
-                    label: ''),
-                BottomNavigationBarItem(
-                    backgroundColor: LightAppColors.kPrimaryColor,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     icon:
-                        ImageIcon(AssetImage('assets/images/moshaf_blue.png')),
+                        const ImageIcon(AssetImage('assets/images/radio.png')),
                     label: ''),
                 BottomNavigationBarItem(
-                    backgroundColor: LightAppColors.kPrimaryColor,
-                    icon: Icon(Icons.settings),
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    icon: const ImageIcon(
+                        AssetImage('assets/images/sebha_blue.png')),
+                    label: ''),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    icon:
+                        const ImageIcon(AssetImage('assets/images/hadith.png')),
+                    label: ''),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    icon: const ImageIcon(
+                        AssetImage('assets/images/moshaf_blue.png')),
+                    label: ''),
+                BottomNavigationBarItem(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    icon: const Icon(Icons.settings),
                     label: ''),
               ]),
         ),

@@ -70,11 +70,7 @@ class SettingsSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               title,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           ...tiles,
@@ -100,9 +96,20 @@ class SettingsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon),
-      title: Text(title),
-      subtitle: subtitle != null ? Text(subtitle!) : null,
+      leading: Icon(
+        icon,
+        color: Theme.of(context).colorScheme.secondary,
+      ),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.headlineMedium,
+      ),
+      subtitle: subtitle != null
+          ? Text(
+              subtitle!,
+              style: Theme.of(context).textTheme.headlineMedium,
+            )
+          : null,
       onTap: onTap,
     );
   }
@@ -139,9 +146,22 @@ class _SwitchSettingsTileState extends State<SwitchSettingsTile> {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(widget.icon),
-      title: Text(widget.title),
+      iconColor: Theme.of(context).colorScheme.secondary,
+      leading: Icon(
+        widget.icon,
+        color: Theme.of(context).colorScheme.secondary,
+      ),
+      title:
+          Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
       trailing: Switch(
+        // hoverColor: Colors.amber,
+        // overlayColor: WidgetStatePropertyAll(Colors.amber),
+        // focusColor: Colors.amber,
+        // activeColor: Colors.amber,
+        trackColor: WidgetStatePropertyAll(Colors.blueGrey),
+        thumbColor:
+            WidgetStatePropertyAll(Theme.of(context).colorScheme.secondary),
+        activeTrackColor: Colors.indigo,
         value: _currentValue,
         onChanged: (bool value) {
           setState(() {

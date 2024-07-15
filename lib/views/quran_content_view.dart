@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/constants.dart';
 import 'package:islamic_app/models/sura_model.dart';
-import 'package:islamic_app/views/bottom_navigation_bar_view.dart';
 
 class QuranContentView extends StatefulWidget {
   static const String routName = 'QuranContentView';
@@ -25,84 +23,72 @@ class _QuranContentViewState extends State<QuranContentView> {
     }
     return Stack(
       children: [
-        Positioned(
-          left: 0,
-          right: 0,
-          child: Image.asset('assets/images/bg.png'),
-        ),
         Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            automaticallyImplyLeading: true,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.popAndPushNamed(
-                    context, BottomNavigationBarView.routName);
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                size: 30,
-                weight: 5,
-              ),
-            ),
-            backgroundColor: Colors.transparent,
-            title: Text(
-              'اسلامي',
-              style: GoogleFonts.elMessiri(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            centerTitle: true,
-          ),
+          // backgroundColor: Colors.transparent,
           body: Padding(
             padding:
                 const EdgeInsets.only(left: 10, right: 10, top: 80, bottom: 10),
             child: Card(
-              child: Column(
+              // clipBehavior: Clip.hardEdge,
+              margin: const EdgeInsets.all(8),
+              child: Stack(
+                clipBehavior: Clip.none,
+                fit: StackFit.expand,
                 children: [
-                  const SizedBox(
-                    height: 20,
+                  Positioned(
+                    bottom: -50,
+                    left: 20,
+                    child: Image.asset('assets/images/bg_removed.png'),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'سورة ${suraModel.suraName}',
-                        style: GoogleFonts.inter(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w400,
+                  Positioned(
+                    top: 40,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'سورة ${suraModel.suraName}',
+                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
-                      ),
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.play_circle)),
-                    ],
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.play_circle)),
+                      ],
+                    ),
                   ),
-                  const Divider(
-                    color: LightAppColors.kPrimaryColor,
-                    thickness: 1,
-                    endIndent: 100,
-                    indent: 100,
+                  const Positioned(
+                    top: 100,
+                    left: 0,
+                    right: 0,
+                    child: Divider(
+                      color: LightAppColors.kPrimaryColor,
+                      thickness: 1,
+                      endIndent: 100,
+                      indent: 100,
+                    ),
                   ),
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: verses.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(
-                                left: 30, right: 30, top: 15, bottom: 15),
-                            child: Center(
-                              child: Text(
-                                verses[index],
-                                style: GoogleFonts.inter(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w400,
+                  Positioned(
+                    top: 120,
+                    left: 0,
+                    right: 0,
+                    child: SizedBox(
+                      height: 475,
+                      child: ListView.builder(
+                          itemCount: verses.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(
+                                  left: 30, right: 30, top: 15, bottom: 15),
+                              child: Center(
+                                child: Text(
+                                  verses[index],
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                               ),
-                            ),
-                          );
-                        }),
+                            );
+                          }),
+                    ),
                   ),
                 ],
               ),

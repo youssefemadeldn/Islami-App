@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islamic_app/constants.dart';
 
 class SebhaTab extends StatefulWidget {
   SebhaTab({super.key});
@@ -40,6 +39,7 @@ class _SebhaTabState extends State<SebhaTab> {
           child: Image.asset(
             // head of sebha
             'assets/images/head_of_seb7a.png',
+            color: Theme.of(context).colorScheme.secondary,
             width: 73,
             height: 80,
           ),
@@ -66,6 +66,7 @@ class _SebhaTabState extends State<SebhaTab> {
               child: Image.asset(
                 // sebha body
                 'assets/images/body_of_seb7a.png',
+                color: Theme.of(context).colorScheme.secondary,
                 width: 234,
                 height: 180,
               ),
@@ -91,7 +92,7 @@ class _SebhaTabState extends State<SebhaTab> {
             width: 69,
             height: 81,
             decoration: BoxDecoration(
-              color: LightAppColors.kPrimaryColor.withOpacity(0.57),
+              color: Theme.of(context).colorScheme.secondary.withOpacity(0.57),
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
@@ -113,7 +114,7 @@ class _SebhaTabState extends State<SebhaTab> {
             width: 137,
             height: 51,
             decoration: BoxDecoration(
-              color: LightAppColors.kPrimaryColor,
+              color: Theme.of(context).colorScheme.secondary,
               borderRadius: BorderRadius.circular(25),
             ),
             child: Center(
