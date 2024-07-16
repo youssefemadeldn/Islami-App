@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_app/constants.dart';
+import 'package:islamic_app/theme/theme.dart';
 import 'package:islamic_app/views/bottom_navigation_bar_view.dart';
 import 'package:islamic_app/views/hadith_content_view.dart';
 import 'package:islamic_app/views/quran_content_view.dart';
@@ -15,9 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          // scaffoldBackgroundColor: kPrimaryColor,
-          ),
+      themeMode: ThemeMode.dark,
+      theme: lightTheme(),
+      darkTheme: darkTheme(),
       debugShowCheckedModeBanner: false,
       initialRoute: BottomNavigationBarView.routName,
       routes: {
