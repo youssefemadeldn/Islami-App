@@ -6,43 +6,98 @@ class SettingTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      // fit: StackFit.expand,
       children: [
-        Positioned(
-          left: 0,
-          right: 0,
-          top: -70,
-          child: Image.asset(
-            'assets/images/bg_removed.png',
-            // height: 900,
-          ),
-        ),
-        Positioned(
-          left: 0,
-          right: 0,
-          top: 100,
-          child: SizedBox(
-            height: 500,
-            child: ListView(
+        Scaffold(
+          // backgroundColor: Colors.transparent,
+          body: Padding(
+            padding: EdgeInsets.only(top: 80, bottom: 8, right: 10, left: 10),
+            child: Stack(
+              clipBehavior: Clip.none,
               children: [
-                SettingsSection(
-                  title: 'Common',
-                  tiles: [
-                    SettingsTile(
-                      icon: Icons.language,
-                      title: 'Language',
-                      subtitle: 'English',
-                      onTap: () {
-                        // Handle tap
-                      },
-                    ),
-                    SwitchSettingsTile(
-                      icon: Icons.format_paint,
-                      title: 'Enable custom theme',
-                      value: false,
-                      onChanged: (bool l) {},
-                    ),
-                  ],
+                Positioned(
+                  top: -100,
+                  left: 0,
+                  right: 0,
+                  child: Image.asset('assets/images/bg_removed.png'),
+                ),
+                Positioned(
+                  top: 100,
+                  left: 0,
+                  right: 0,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Theme",
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return const ThemeBottomSheet();
+                            },
+                          );
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            // color: Theme.of(context).colorScheme.secondary,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                                width: 2,
+                                color: Theme.of(context).colorScheme.secondary),
+                          ),
+                          child: Text(
+                            'Light',
+                            style: Theme.of(context).textTheme.headlineLarge,
+                          ),
+                        ),
+                      ),
+
+                      //
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      //
+                      Text(
+                        "Language",
+                        textAlign: TextAlign.start,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          showModalBottomSheet(
+                            isScrollControlled: true,
+                            context: context,
+                            builder: (context) {
+                              return const LangueBottomSheet();
+                            },
+                          );
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            // color: Theme.of(context).colorScheme.secondary,
+                            borderRadius: BorderRadius.circular(15),
+                            border: Border.all(
+                                width: 2,
+                                color: Theme.of(context).colorScheme.secondary),
+                          ),
+                          child: Text(
+                            'English',
+                            style: Theme.of(context).textTheme.headlineLarge,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -53,122 +108,87 @@ class SettingTab extends StatelessWidget {
   }
 }
 
-class SettingsSection extends StatelessWidget {
-  final String title;
-  final List<Widget> tiles;
-
-  const SettingsSection({super.key, required this.title, required this.tiles});
+class ThemeBottomSheet extends StatelessWidget {
+  const ThemeBottomSheet({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Light',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              const Icon(
+                Icons.done,
+              )
+            ],
           ),
-          ...tiles,
+          const SizedBox(
+            height: 25,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Dark',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              // const Icon(Icons.done),
+            ],
+          ),
         ],
       ),
     );
   }
 }
 
-class SettingsTile extends StatelessWidget {
-  final IconData icon;
-  final String title;
-  final String? subtitle;
-  final VoidCallback? onTap;
-
-  const SettingsTile(
-      {super.key,
-      required this.icon,
-      required this.title,
-      this.subtitle,
-      this.onTap});
+class LangueBottomSheet extends StatelessWidget {
+  const LangueBottomSheet({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: Icon(
-        icon,
-        color: Theme.of(context).colorScheme.secondary,
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.headlineMedium,
-      ),
-      subtitle: subtitle != null
-          ? Text(
-              subtitle!,
-              style: Theme.of(context).textTheme.headlineMedium,
-            )
-          : null,
-      onTap: onTap,
-    );
-  }
-}
-
-class SwitchSettingsTile extends StatefulWidget {
-  final IconData icon;
-  final String title;
-  final bool value;
-  final ValueChanged<bool> onChanged;
-
-  const SwitchSettingsTile(
-      {super.key,
-      required this.icon,
-      required this.title,
-      required this.value,
-      required this.onChanged});
-
-  @override
-  _SwitchSettingsTileState createState() => _SwitchSettingsTileState();
-}
-
-class _SwitchSettingsTileState extends State<SwitchSettingsTile> {
-  bool _currentValue;
-
-  _SwitchSettingsTileState() : _currentValue = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _currentValue = widget.value;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      iconColor: Theme.of(context).colorScheme.secondary,
-      leading: Icon(
-        widget.icon,
-        color: Theme.of(context).colorScheme.secondary,
-      ),
-      title:
-          Text(widget.title, style: Theme.of(context).textTheme.headlineMedium),
-      trailing: Switch(
-        // hoverColor: Colors.amber,
-        // overlayColor: WidgetStatePropertyAll(Colors.amber),
-        // focusColor: Colors.amber,
-        // activeColor: Colors.amber,
-        trackColor: WidgetStatePropertyAll(Colors.blueGrey),
-        thumbColor:
-            WidgetStatePropertyAll(Theme.of(context).colorScheme.secondary),
-        activeTrackColor: Colors.indigo,
-        value: _currentValue,
-        onChanged: (bool value) {
-          setState(() {
-            _currentValue = value;
-          });
-          widget.onChanged(value);
-        },
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Arabic',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              const Icon(
+                Icons.done,
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'English',
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              // const Icon(Icons.done),
+            ],
+          ),
+        ],
       ),
     );
   }
