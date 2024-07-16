@@ -60,6 +60,15 @@ ThemeData lightTheme() => ThemeData(
       ),
 
       // switchTheme: SwitchThemeData()
+// bottomSheetTheme
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: Colors.white,
+      ),
+// iconTheme
+      iconTheme: const IconThemeData(
+        color: LightAppColors.kSecondlyColor,
+        size: 30,
+      ),
     );
 
 ThemeData darkTheme() => ThemeData(
@@ -119,4 +128,14 @@ ThemeData darkTheme() => ThemeData(
       ),
 
       // switchTheme: SwitchThemeData()
+
+      // bottomSheetTheme
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: Color.fromARGB(255, 3, 65, 116),
+      ),
+      // iconTheme
+      iconTheme: const IconThemeData(
+        color: DarkAppColors.kSecondlyColor,
+        size: 30,
+      ),
     );
