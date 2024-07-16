@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/provider/theme_provider.dart';
 import 'package:islamic_app/theme/theme.dart';
 import 'package:islamic_app/views/bottom_navigation_bar_view.dart';
 import 'package:islamic_app/views/hadith_content_view.dart';
 import 'package:islamic_app/views/quran_content_view.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => ThemeProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,8 +19,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ThemeProvider provider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
-      themeMode: ThemeMode.dark,
+      themeMode: provider.mode,
       theme: lightTheme(),
       darkTheme: darkTheme(),
       debugShowCheckedModeBanner: false,
