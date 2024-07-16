@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islamic_app/provider/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class SettingTab extends StatelessWidget {
   const SettingTab({super.key});
@@ -10,7 +12,8 @@ class SettingTab extends StatelessWidget {
         Scaffold(
           // backgroundColor: Colors.transparent,
           body: Padding(
-            padding: EdgeInsets.only(top: 80, bottom: 8, right: 10, left: 10),
+            padding:
+                const EdgeInsets.only(top: 80, bottom: 8, right: 10, left: 10),
             child: Stack(
               clipBehavior: Clip.none,
               children: [
@@ -115,35 +118,47 @@ class ThemeBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider pro = Provider.of<ThemeProvider>(context);
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Light',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const Icon(
-                Icons.done,
-              )
-            ],
+          InkWell(
+            onTap: () {
+              pro.changeThemeMode(ThemeMode.light);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Light',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                const Icon(
+                  Icons.done,
+                )
+              ],
+            ),
           ),
           const SizedBox(
             height: 25,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Dark',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              // const Icon(Icons.done),
-            ],
+          InkWell(
+            onTap: () {
+              pro.changeThemeMode(ThemeMode.dark);
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Dark',
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                // const Icon(Icons.done),
+              ],
+            ),
           ),
         ],
       ),
