@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islamic_app/generated/l10n.dart';
 
 class SebhaTab extends StatefulWidget {
   SebhaTab({super.key});
@@ -38,7 +39,7 @@ class _SebhaTabState extends State<SebhaTab> {
           left: 0,
           right: 0,
           child: Text(
-            'Islami',
+            S.of(context).islami,
             textAlign: TextAlign.center,
             style: GoogleFonts.elMessiri(
               fontWeight: FontWeight.w600,
@@ -91,7 +92,7 @@ class _SebhaTabState extends State<SebhaTab> {
           right: 0,
           left: 0,
           child: Text(
-            'Number of Praises',
+            S.of(context).number_of_praises,
             textAlign: TextAlign.center,
             style: GoogleFonts.elMessiri(
               fontSize: 25,

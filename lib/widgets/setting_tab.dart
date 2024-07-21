@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islamic_app/generated/l10n.dart';
 import 'package:islamic_app/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,7 @@ class SettingTab extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Text(
-                    'Islami',
+                    S.of(context).islami,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.elMessiri(
                       fontWeight: FontWeight.w600,
@@ -45,7 +46,7 @@ class SettingTab extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Theme",
+                        S.of(context).theme,
                         textAlign: TextAlign.start,
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
@@ -70,7 +71,7 @@ class SettingTab extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary),
                           ),
                           child: Text(
-                            'Light',
+                            S.of(context).light,
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
@@ -82,7 +83,7 @@ class SettingTab extends StatelessWidget {
                       ),
                       //
                       Text(
-                        "Language",
+                        S.of(context).language,
                         textAlign: TextAlign.start,
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
@@ -108,7 +109,7 @@ class SettingTab extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary),
                           ),
                           child: Text(
-                            'English',
+                            S.of(context).english,
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
@@ -147,7 +148,7 @@ class ThemeBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Light',
+                  S.of(context).light,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 const Icon(
@@ -167,7 +168,7 @@ class ThemeBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Dark',
+                  S.of(context).dark,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 // const Icon(Icons.done),
@@ -196,7 +197,7 @@ class LangueBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Arabic',
+                S.of(context).arabic,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               const Icon(
@@ -211,7 +212,7 @@ class LangueBottomSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'English',
+                S.of(context).english,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               // const Icon(Icons.done),

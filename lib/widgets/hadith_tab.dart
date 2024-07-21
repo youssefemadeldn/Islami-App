@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/constants.dart';
+import 'package:islamic_app/generated/l10n.dart';
 import 'package:islamic_app/models/hadithmodel.dart';
 import 'package:islamic_app/views/hadith_content_view.dart';
 
@@ -35,7 +36,7 @@ class _HadithTabState extends State<HadithTab> {
           left: 0,
           right: 0,
           child: Text(
-            'Islami',
+            S.of(context).islami,
             textAlign: TextAlign.center,
             style: GoogleFonts.elMessiri(
               fontWeight: FontWeight.w600,
@@ -64,7 +65,7 @@ class _HadithTabState extends State<HadithTab> {
           right: 0,
           child: Text(
             textAlign: TextAlign.center,
-            'Ahadith',
+            S.of(context).ahadith,
             style: GoogleFonts.elMessiri(
               fontSize: 25,
               fontWeight: FontWeight.w600,

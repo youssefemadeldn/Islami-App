@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/constants.dart';
+import 'package:islamic_app/generated/l10n.dart';
 import 'package:islamic_app/models/sura_model.dart';
 import 'package:islamic_app/views/quran_content_view.dart';
 
@@ -142,7 +143,7 @@ class QuranTab extends StatelessWidget {
           left: 0,
           right: 0,
           child: Text(
-            'Islami',
+            S.of(context).islami,
             textAlign: TextAlign.center,
             style: GoogleFonts.elMessiri(
               fontWeight: FontWeight.w600,
@@ -172,7 +173,7 @@ class QuranTab extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                'Sura Name',
+                S.of(context).sura_name,
                 textAlign: TextAlign.center,
                 style: GoogleFonts.elMessiri(
                   fontSize: 25,

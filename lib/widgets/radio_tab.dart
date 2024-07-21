@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islamic_app/constants.dart';
+import 'package:islamic_app/generated/l10n.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
@@ -23,7 +23,7 @@ class RadioTab extends StatelessWidget {
           left: 0,
           right: 0,
           child: Text(
-            'Islami',
+            S.of(context).islami,
             textAlign: TextAlign.center,
             style: GoogleFonts.elMessiri(
               fontWeight: FontWeight.w600,
@@ -44,7 +44,7 @@ class RadioTab extends StatelessWidget {
           right: 0,
           child: Text(
             textAlign: TextAlign.center,
-            'Quran Radio',
+            S.of(context).quran_radio,
             style: GoogleFonts.elMessiri(
               fontWeight: FontWeight.w600,
               fontSize: 25,
