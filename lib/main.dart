@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islamic_app/generated/l10n.dart';
+import 'package:islamic_app/provider/localizations_provider.dart';
 import 'package:islamic_app/provider/theme_provider.dart';
 import 'package:islamic_app/theme/theme.dart';
 import 'package:islamic_app/views/bottom_navigation_bar_view.dart';
@@ -19,10 +20,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ThemeProvider provider = Provider.of<ThemeProvider>(context);
-    return ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ThemeProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => LocalizationsProvider(),
+        )
+      ],
       builder: (context, child) => MaterialApp(
-        locale: const Locale('en'),
+        locale: Provider.of<LocalizationsProvider>(context).loc,
         localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
