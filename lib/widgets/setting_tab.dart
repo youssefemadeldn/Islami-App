@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islamic_app/generated/l10n.dart';
+import 'package:islamic_app/provider/localizations_provider.dart';
 import 'package:islamic_app/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +31,7 @@ class SettingTab extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Text(
-                    'Islami',
+                    S.of(context).islami,
                     textAlign: TextAlign.center,
                     style: GoogleFonts.elMessiri(
                       fontWeight: FontWeight.w600,
@@ -45,7 +47,7 @@ class SettingTab extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Theme",
+                        S.of(context).theme,
                         textAlign: TextAlign.start,
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
@@ -70,7 +72,7 @@ class SettingTab extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary),
                           ),
                           child: Text(
-                            'Light',
+                            S.of(context).light,
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
@@ -82,7 +84,7 @@ class SettingTab extends StatelessWidget {
                       ),
                       //
                       Text(
-                        "Language",
+                        S.of(context).language,
                         textAlign: TextAlign.start,
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
@@ -108,7 +110,7 @@ class SettingTab extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary),
                           ),
                           child: Text(
-                            'English',
+                            S.of(context).english,
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
@@ -147,12 +149,14 @@ class ThemeBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Light',
+                  S.of(context).light,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                const Icon(
-                  Icons.done,
-                )
+                Provider.of<ThemeProvider>(context).isLight
+                    ? const Icon(
+                        Icons.done,
+                      )
+                    : const SizedBox(),
               ],
             ),
           ),
@@ -167,10 +171,12 @@ class ThemeBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Dark',
+                  S.of(context).dark,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                // const Icon(Icons.done),
+                Provider.of<ThemeProvider>(context).isLight
+                    ? const SizedBox()
+                    : const Icon(Icons.done),
               ],
             ),
           ),
@@ -187,35 +193,50 @@ class LangueBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LocalizationsProvider loc = Provider.of<LocalizationsProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Arabic',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const Icon(
-                Icons.done,
-              )
-            ],
+          InkWell(
+            onTap: () {
+              loc.changeLanguage(const Locale('ar'));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  S.of(context).arabic,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                Provider.of<LocalizationsProvider>(context).isEnglish
+                    ? const SizedBox()
+                    : const Icon(
+                        Icons.done,
+                      ),
+              ],
+            ),
           ),
           const SizedBox(
             height: 25,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'English',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              // const Icon(Icons.done),
-            ],
+          InkWell(
+            onTap: () {
+              loc.changeLanguage(const Locale('en'));
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  S.of(context).english,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                Provider.of<LocalizationsProvider>(context).isEnglish
+                    ? const Icon(Icons.done)
+                    : const SizedBox(),
+              ],
+            ),
           ),
         ],
       ),

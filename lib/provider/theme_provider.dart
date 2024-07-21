@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class ThemeProvider extends ChangeNotifier {
   ThemeMode mode = ThemeMode.light;
-
+  bool isLight = true;
   changeThemeMode(ThemeMode themeMode) {
     mode = themeMode;
+
+    mode == ThemeMode.light ? isLight = true : isLight = false;
 
     notifyListeners();
   }

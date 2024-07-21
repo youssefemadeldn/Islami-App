@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a ar locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,21 +18,22 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "ahadith": MessageLookupByLibrary.simpleMessage("Ahadith"),
-        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
-        "dark": MessageLookupByLibrary.simpleMessage("Dark"),
-        "english": MessageLookupByLibrary.simpleMessage("English"),
-        "islami": MessageLookupByLibrary.simpleMessage("Islami"),
-        "language": MessageLookupByLibrary.simpleMessage("Language"),
-        "light": MessageLookupByLibrary.simpleMessage("Light"),
+        "ahadith": MessageLookupByLibrary.simpleMessage("الأحاديث"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "dark": MessageLookupByLibrary.simpleMessage("داكن"),
+        "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "islami": MessageLookupByLibrary.simpleMessage("إسلامي"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "light": MessageLookupByLibrary.simpleMessage("فاتح"),
         "number_of_praises":
-            MessageLookupByLibrary.simpleMessage("Number of Praises"),
-        "quran_radio": MessageLookupByLibrary.simpleMessage("Quran Radio"),
-        "sura_name": MessageLookupByLibrary.simpleMessage("Sura Name"),
-        "theme": MessageLookupByLibrary.simpleMessage("Theme")
+            MessageLookupByLibrary.simpleMessage("عدد التسبيحات"),
+        "quran_radio":
+            MessageLookupByLibrary.simpleMessage("إذاعة القرآن الكريم"),
+        "sura_name": MessageLookupByLibrary.simpleMessage("إسم السورة"),
+        "theme": MessageLookupByLibrary.simpleMessage("الثيم")
       };
 }

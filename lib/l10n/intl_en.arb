@@ -1,1 +1,13 @@
-{}
+{
+    "islami" : "Islami",
+    "quran_radio" :"Quran Radio",
+    "number_of_praises": "Number of Praises",
+    "ahadith":"Ahadith",
+    "sura_name": "Sura Name",
+    "theme":"Theme",
+    "light":"Light",
+    "dark":"Dark",
+    "language":"Language",
+    "arabic":"Arabic",
+    "english":"English"
+}

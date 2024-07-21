@@ -49,6 +49,116 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Islami`
+  String get islami {
+    return Intl.message(
+      'Islami',
+      name: 'islami',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quran Radio`
+  String get quran_radio {
+    return Intl.message(
+      'Quran Radio',
+      name: 'quran_radio',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Number of Praises`
+  String get number_of_praises {
+    return Intl.message(
+      'Number of Praises',
+      name: 'number_of_praises',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ahadith`
+  String get ahadith {
+    return Intl.message(
+      'Ahadith',
+      name: 'ahadith',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sura Name`
+  String get sura_name {
+    return Intl.message(
+      'Sura Name',
+      name: 'sura_name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message(
+      'Theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get light {
+    return Intl.message(
+      'Light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark`
+  String get dark {
+    return Intl.message(
+      'Dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +167,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ar'),
     ];
   }
 
