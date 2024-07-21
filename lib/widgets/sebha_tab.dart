@@ -34,6 +34,19 @@ class _SebhaTabState extends State<SebhaTab> {
           ),
         ),
         Positioned(
+          top: 50,
+          left: 0,
+          right: 0,
+          child: Text(
+            'Islami',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.elMessiri(
+              fontWeight: FontWeight.w600,
+              fontSize: 25,
+            ),
+          ),
+        ),
+        Positioned(
           left: 184,
           top: 75,
           child: Image.asset(
@@ -75,10 +88,11 @@ class _SebhaTabState extends State<SebhaTab> {
         ),
         Positioned(
           top: 330,
-          // right: 0,
-          left: 125,
+          right: 0,
+          left: 0,
           child: Text(
-            'عدد التسبيحات',
+            'Number of Praises',
+            textAlign: TextAlign.center,
             style: GoogleFonts.elMessiri(
               fontSize: 25,
               fontWeight: FontWeight.w600,

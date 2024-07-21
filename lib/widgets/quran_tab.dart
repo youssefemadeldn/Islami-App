@@ -138,12 +138,25 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: -55,
+          top: 50,
+          left: 0,
+          right: 0,
+          child: Text(
+            'Islami',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.elMessiri(
+              fontWeight: FontWeight.w600,
+              fontSize: 25,
+            ),
+          ),
+        ),
+        Positioned(
+            top: -20,
             left: 0,
             right: 0,
             child: Image.asset('assets/images/quran_logo.png')),
         const Positioned(
-          top: 280,
+          top: 320,
           left: 0,
           right: 0,
           child: Divider(
@@ -152,14 +165,15 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 295,
+          top: 340,
           left: 0,
           right: 0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                'اسم السورة',
+                'Sura Name',
+                textAlign: TextAlign.center,
                 style: GoogleFonts.elMessiri(
                   fontSize: 25,
                   fontWeight: FontWeight.w600,
@@ -169,7 +183,7 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         const Positioned(
-          top: 328,
+          top: 380,
           left: 0,
           right: 0,
           child: Divider(
@@ -178,11 +192,11 @@ class QuranTab extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 335,
+          top: 395,
           left: 0,
           right: 0,
           child: SizedBox(
-            height: 300,
+            height: 500,
             child: ListView.builder(
               itemCount: suraNamesList.length,
               itemBuilder: (context, index) {

@@ -31,6 +31,19 @@ class _HadithTabState extends State<HadithTab> {
           ),
         ),
         Positioned(
+          top: 50,
+          left: 0,
+          right: 0,
+          child: Text(
+            'Islami',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.elMessiri(
+              fontWeight: FontWeight.w600,
+              fontSize: 25,
+            ),
+          ),
+        ),
+        Positioned(
           top: 40,
           left: 0,
           right: 0,
@@ -47,10 +60,11 @@ class _HadithTabState extends State<HadithTab> {
         ),
         Positioned(
           top: 294,
-          left: 160,
+          left: 0,
           right: 0,
           child: Text(
-            'الأحاديث',
+            textAlign: TextAlign.center,
+            'Ahadith',
             style: GoogleFonts.elMessiri(
               fontSize: 25,
               fontWeight: FontWeight.w600,

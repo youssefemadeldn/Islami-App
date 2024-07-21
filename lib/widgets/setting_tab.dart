@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/provider/theme_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,19 @@ class SettingTab extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Image.asset('assets/images/bg_removed.png'),
+                ),
+                Positioned(
+                  top: 20,
+                  left: 0,
+                  right: 0,
+                  child: Text(
+                    'Islami',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.elMessiri(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 25,
+                    ),
+                  ),
                 ),
                 Positioned(
                   top: 100,

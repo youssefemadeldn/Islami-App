@@ -19,6 +19,19 @@ class RadioTab extends StatelessWidget {
           ),
         ),
         Positioned(
+          top: 50,
+          left: 0,
+          right: 0,
+          child: Text(
+            'Islami',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.elMessiri(
+              fontWeight: FontWeight.w600,
+              fontSize: 25,
+            ),
+          ),
+        ),
+        Positioned(
           top: 150,
           child: Image.asset(
             'assets/images/radio_logo.png',
@@ -31,7 +44,7 @@ class RadioTab extends StatelessWidget {
           right: 0,
           child: Text(
             textAlign: TextAlign.center,
-            'إذاعة القرآن الكريم',
+            'Quran Radio',
             style: GoogleFonts.elMessiri(
               fontWeight: FontWeight.w600,
               fontSize: 25,
