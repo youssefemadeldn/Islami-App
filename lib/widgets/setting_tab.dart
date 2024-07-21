@@ -152,9 +152,11 @@ class ThemeBottomSheet extends StatelessWidget {
                   S.of(context).light,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                const Icon(
-                  Icons.done,
-                )
+                Provider.of<ThemeProvider>(context).isLight
+                    ? const Icon(
+                        Icons.done,
+                      )
+                    : const SizedBox(),
               ],
             ),
           ),
@@ -172,7 +174,9 @@ class ThemeBottomSheet extends StatelessWidget {
                   S.of(context).dark,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                // const Icon(Icons.done),
+                Provider.of<ThemeProvider>(context).isLight
+                    ? const SizedBox()
+                    : const Icon(Icons.done),
               ],
             ),
           ),
@@ -206,9 +210,11 @@ class LangueBottomSheet extends StatelessWidget {
                   S.of(context).arabic,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                const Icon(
-                  Icons.done,
-                )
+                Provider.of<LocalizationsProvider>(context).isEnglish
+                    ? const SizedBox()
+                    : const Icon(
+                        Icons.done,
+                      ),
               ],
             ),
           ),
@@ -226,7 +232,9 @@ class LangueBottomSheet extends StatelessWidget {
                   S.of(context).english,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
-                // const Icon(Icons.done),
+                Provider.of<LocalizationsProvider>(context).isEnglish
+                    ? const Icon(Icons.done)
+                    : const SizedBox(),
               ],
             ),
           ),
