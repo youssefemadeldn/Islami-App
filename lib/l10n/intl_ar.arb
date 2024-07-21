@@ -1,1 +1,13 @@
-{}
+{
+    "islami" : "إسلامي",
+    "quran_radio" :"إذاعة القرآن الكريم",
+    "number_of_praises": "عدد التسبيحات",
+    "ahadith":"الأحاديث",
+    "sura_name": "إسم السورة",
+    "theme":"الثيم",
+    "light":"فاتح",
+    "dark":"داكن",
+    "language":"اللغة",
+    "arabic":"العربية",
+    "english":"الإنجليزية"
+}
