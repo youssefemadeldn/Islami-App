@@ -6,10 +6,11 @@ class ThemeProvider extends ChangeNotifier {
     getLastThemeMode();
   }
   ThemeMode mode = ThemeMode.light;
+  bool isLight = true;
 
   void changeThemeMode(ThemeMode themeMode) async {
     mode = themeMode;
-
+    mode == ThemeMode.light ? isLight = true : isLight = false;
     notifyListeners();
 
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();

@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:islamic_app/generated/l10n.dart';
 import 'package:islamic_app/provider/localizations_provider.dart';
 import 'package:islamic_app/provider/theme_provider.dart';
+import 'package:islamic_app/widgets/language_bottom_sheet.dart';
+import 'package:islamic_app/widgets/theme_bottom_sheet.dart';
 import 'package:provider/provider.dart';
 
 class SettingTab extends StatelessWidget {
@@ -10,6 +12,8 @@ class SettingTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider theme = Provider.of<ThemeProvider>(context);
+    LocalizationsProvider loc = Provider.of<LocalizationsProvider>(context);
     return Stack(
       children: [
         Scaffold(
@@ -72,7 +76,9 @@ class SettingTab extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary),
                           ),
                           child: Text(
-                            S.of(context).light,
+                            theme.isLight
+                                ? S.of(context).light
+                                : S.of(context).dark,
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
@@ -94,7 +100,7 @@ class SettingTab extends StatelessWidget {
                             isScrollControlled: true,
                             context: context,
                             builder: (context) {
-                              return const LangueBottomSheet();
+                              return const LanguageBottomSheet();
                             },
                           );
                         },
@@ -110,7 +116,9 @@ class SettingTab extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary),
                           ),
                           child: Text(
-                            S.of(context).english,
+                            loc.isEnglish
+                                ? S.of(context).english
+                                : S.of(context).arabic,
                             style: Theme.of(context).textTheme.headlineLarge,
                           ),
                         ),
@@ -123,123 +131,6 @@ class SettingTab extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class ThemeBottomSheet extends StatelessWidget {
-  const ThemeBottomSheet({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    ThemeProvider pro = Provider.of<ThemeProvider>(context);
-
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          InkWell(
-            onTap: () {
-              pro.changeThemeMode(ThemeMode.light);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).light,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                Provider.of<ThemeProvider>(context).isLight
-                    ? const Icon(
-                        Icons.done,
-                      )
-                    : const SizedBox(),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          InkWell(
-            onTap: () {
-              pro.changeThemeMode(ThemeMode.dark);
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).dark,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                Provider.of<ThemeProvider>(context).isLight
-                    ? const SizedBox()
-                    : const Icon(Icons.done),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class LangueBottomSheet extends StatelessWidget {
-  const LangueBottomSheet({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    LocalizationsProvider loc = Provider.of<LocalizationsProvider>(context);
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          InkWell(
-            onTap: () {
-              loc.changeLanguage(const Locale('ar'));
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).arabic,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                Provider.of<LocalizationsProvider>(context).isEnglish
-                    ? const SizedBox()
-                    : const Icon(
-                        Icons.done,
-                      ),
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          InkWell(
-            onTap: () {
-              loc.changeLanguage(const Locale('en'));
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  S.of(context).english,
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                Provider.of<LocalizationsProvider>(context).isEnglish
-                    ? const Icon(Icons.done)
-                    : const SizedBox(),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
